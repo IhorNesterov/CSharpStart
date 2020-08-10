@@ -1,4 +1,4 @@
-﻿#define Debug
+﻿//#define Debug
 using System;
 using System.Diagnostics;
 
@@ -12,8 +12,8 @@ namespace ConsoleApp1
             for (int i = 0; i < input.Length; i++)
             {
 #if (Debug)  
-                Console.WriteLine("Index:" + i);
-                Console.WriteLine("Char:" + input.Substring(i, 1));
+                Console.WriteLine("Parse function - Index:" + i);
+                Console.WriteLine("Parse function - Char:" + input.Substring(i, 1));
 #endif
                 if (input.Substring(i, 1) == " ")
                 {
@@ -21,7 +21,7 @@ namespace ConsoleApp1
                 }
             }
 #if (Debug)
-            Console.WriteLine("wordscount:" + wordscount);
+            Console.WriteLine("Parse function - wordscount:" + wordscount);
 #endif 
             int[] endpoints = new int[wordscount + 1];
             string[] output = new string[wordscount];
@@ -34,8 +34,8 @@ namespace ConsoleApp1
                 {
                     endpoints[currentpoint] = k + 1;
 #if (Debug)
-                    Console.WriteLine("Point:" + k);
-                    Console.WriteLine("Endd:" + endpoints[currentpoint]);
+                    Console.WriteLine("Parse function - Point:" + k);
+                    Console.WriteLine("Parse function - End:" + endpoints[currentpoint]);
 #endif
                     currentpoint++;
                 }
@@ -44,20 +44,20 @@ namespace ConsoleApp1
 #if (Debug)
             for(int i = 0; i < endpoints.Length; i++)
             {
-                Console.WriteLine("Ended:" + endpoints[i]);
+                Console.WriteLine("Parse function - Ended:" + endpoints[i]);
             }
 #endif
             for (int i = 1; i < wordscount + 1; i++)
             {
                 output[i - 1] = input.Substring(endpoints[i - 1], endpoints[i] - endpoints[i - 1]);
 #if (Debug)
-                Console.WriteLine("Endpoint:" + endpoints[i - 1]);
-                Console.WriteLine("String:" + output[i - 1]);
+                Console.WriteLine("Parse function - Endpoint:" + endpoints[i - 1]);
+                Console.WriteLine("Parse function - String:" + output[i - 1]);
             }
 
             for (int i = 0; i < wordscount; i++)
             {
-                Console.WriteLine("parsed:" + output[i]);
+                Console.WriteLine("Parse function - Parsed:" + output[i]);
             }
 #else
             }
@@ -67,7 +67,7 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            string[] test = Parse("Debich lol kek ");
+            string[] test = Parse("1 2 3 4 5 c csharp boyarin Yebat 6 - + * / No zaeban ya slehka 11 12 + 13 = 25 16 17 18 19 20 ");
             for(int i = 0; i < test.Length; i++)
             {
                 Console.WriteLine(test[i]);
