@@ -1,4 +1,4 @@
-﻿//#define Debug
+﻿#define Debug
 using System;
 using System.Diagnostics;
 
@@ -20,6 +20,7 @@ namespace ConsoleApp1
                     wordscount++;
                 }
             }
+            wordscount++;
 #if (Debug)
             Console.WriteLine("Parse function - wordscount:" + wordscount);
 #endif 
@@ -28,8 +29,10 @@ namespace ConsoleApp1
             int currentpoint = 1;
             endpoints[0] = 0;
 
-            for (int k = 0; k < input.Length; k++)
+            for (int k = 0; k < input.Length + 1; k++)
             {
+                if (k == input.Length) endpoints[currentpoint] = k;
+                else
                 if (input.Substring(k, 1) == " ")
                 {
                     endpoints[currentpoint] = k + 1;
@@ -67,14 +70,10 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            string[] test = Parse("1 2 3 4 5 c csharp boyarin Yebat 6 - + * / No zaeban ya slehka 11 12 + 13 = 25 16 17 18 19 20 ");
-            for(int i = 0; i < test.Length; i++)
-            {
-                Console.WriteLine(test[i]);
-            }
-
+            int[] mark = { 3, 4, 5 };
+            Student debich = new Student(21, 80, "Nesterov Ihor", "Politekh", Parse("Math Physics Programming"), mark);
+            Console.WriteLine(debich.Display());
             Console.ReadLine();
-            Console.WriteLine("Hello World!");
         }
     }
 }

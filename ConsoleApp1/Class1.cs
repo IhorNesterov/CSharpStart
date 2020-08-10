@@ -97,19 +97,22 @@ namespace ConsoleApp1
 
         public Student() : base()
         {
-            int[] mark = { 3, 3};
-            string[] subject = { "Default", "Default" };
+            int[] mark = { 3 };
+            string[] subject = { "Default"};
             this.Setmarks(mark);
             this.SetSubjects(subject);
-            this.university_name = "Default university name";
+            this.SetUniversityName("Default university name");
         }
 
         public Student(int age, int weight, string name, string univer_name) : base(age, weight, name)
         {
-            if (univer_name != null)
-            {
-                this.university_name = univer_name;
-            }
+            this.SetUniversityName(univer_name);
+        }
+
+        public Student(int age, int weight, string name, string univer_name,string[] subjects,int[] marks) : this(age,weight,name,univer_name)
+        {
+            this.SetSubjects(subjects);
+            this.Setmarks(marks);
         }
 
         public void SetUniversityName(string univer_name)
@@ -164,7 +167,7 @@ namespace ConsoleApp1
             string output = base.Display();
             output += "\nUniversity name:" + GetUniversityName();
             output += "\nMarks:\n";
-            for (int i = 0; i < this.marks.Length - 1; i++)
+            for (int i = 0; i < this.marks.Length; i++)
             {
                 output += this.GetSubject(i) + ":" + this.marks[i] + "\n";
             }
@@ -176,7 +179,6 @@ namespace ConsoleApp1
             base.Write();
             Console.WriteLine("\nWrite university name");
             this.SetUniversityName(Console.ReadLine());
-
         }
 
         
