@@ -20,10 +20,10 @@ namespace ConsoleApp1
             }
 
             set
-            {
-                if (Age > 0 && Age < 150)
-                {
-                    this.age = Age;
+            { 
+                if (value > 0 && value < 150)
+                { 
+                    age = value;
                 }
             }
         }
@@ -36,9 +36,9 @@ namespace ConsoleApp1
             }
             set
             {
-                if(Weight > 10 && Weight < 500)
+                if(value > 10 && value < 500)
                 {
-                    this.weight = Weight;
+                    weight = value;
                 }
             }
 
@@ -52,9 +52,9 @@ namespace ConsoleApp1
             }
             set
             {
-                if(Name != null)
+                if(value != null)
                 {
-                    this.name = Name;
+                    name = value;
                 }
             }
         }
@@ -62,18 +62,18 @@ namespace ConsoleApp1
         public Human()
         {
             unique_id = count;
-            this.Age = 20;
-            this.Weight = 70;
-            this.Name = "Dodik";
+            Age = 20;
+            Weight = 70;
+            Name = "Dodik";
             count++;
         }
 
         public Human(int age, int weight, string name)
         {
             unique_id = count;
-            this.Age = age;
-            this.Weight = weight;
-            this.Name = name;
+            Age = age;
+            Weight = weight;
+            Name = name;
             count++;
         }
 
@@ -90,13 +90,13 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Hello,write name)");
             string input = Console.ReadLine();
-            this.Name = input;
+            Name = input;
             Console.WriteLine("Write weight");
             input = Console.ReadLine();
-            this.Weight = Int32.Parse(input);
+            Weight = Int32.Parse(input);
             Console.WriteLine("Write age");
             input = Console.ReadLine();
-            this.Age = Int32.Parse(input);
+            Age = Int32.Parse(input);
         }
     };
 
@@ -110,20 +110,20 @@ namespace ConsoleApp1
         {
             int[] marks = { 3 };
             string[] subjects = { "Default"};
-            this.Marks = marks;
-            this.Subjects = subjects;
-            this.University_Name = "Default university name";
+            Marks = marks;
+            Subjects = subjects;
+            University_Name = "Default university name";
         }
 
         public Student(int age, int weight, string name, string univer_name) : base(age, weight, name)
         {
-            this.University_Name = univer_name;
+            University_Name = univer_name;
         }
 
         public Student(int age, int weight, string name, string univer_name,string[] subjects,int[] marks) : this(age,weight,name,univer_name)
         {
-            this.Subjects = subjects;
-            this.Marks = marks;
+            Subjects = subjects;
+            Marks = marks;
         }
 
         public string University_Name
@@ -134,9 +134,9 @@ namespace ConsoleApp1
             }
             set
             {
-                if(University_Name != null)
+                if(value != null)
                 {
-                    this.university_name = University_Name;
+                    university_name = value;
                 }
             }
         }
@@ -149,9 +149,9 @@ namespace ConsoleApp1
             }
             set
             {
-                if (subjects != null)
+                if (value != null)
                 {
-                    this.subjects = Subjects;
+                    subjects = value;
                 }
             }
         }
@@ -164,9 +164,9 @@ namespace ConsoleApp1
             }
             set
             {
-                if(Marks != null)
+                if (value != null)
                 {
-                    this.marks = Marks;
+                    marks = value;
                 }
             }
         }
@@ -176,7 +176,7 @@ namespace ConsoleApp1
             string output = base.Display();
             output += "\nUniversity name:" + University_Name;
             output += "\nMarks:\n";
-            for (int i = 0; i < this.Marks.Length; i++)
+            for (int i = 0; i < Marks.Length; i++)
             {
                 output += this.Subjects[i] + ":" + this.Marks[i] + "\n";
             }
@@ -190,7 +190,6 @@ namespace ConsoleApp1
             this.University_Name = Console.ReadLine();
         }
 
-        
     }
 
 }

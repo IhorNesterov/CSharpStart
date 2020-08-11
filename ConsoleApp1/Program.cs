@@ -8,8 +8,9 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int[] mark = { 3, 4, 5 };
-            Student debich = new Student(21, 80, "Nesterov Ihor", "Politekh", App.Parse("Math Physics Programming"), mark);
+            string subjects = "Khimia Physics Math";
+            int[] marks = { 3, 4, 5 };
+            Student debich = new Student(20, 70, "Nestrov", "Politekh",App.Parse(subjects),marks);
             Console.WriteLine(debich.Display());
             Console.ReadLine();
         }
