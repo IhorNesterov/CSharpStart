@@ -1,4 +1,4 @@
-﻿#define Debug
+﻿//#define Debug
 using System;
 using System.Diagnostics;
 
@@ -8,10 +8,12 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string subjects = "Khimia Physics Math";
-            int[] marks = { 3, 4, 5 };
-            Student debich = new Student(20, 70, "Nestrov", "Politekh",App.Parse(subjects),marks);
-            Console.WriteLine(debich.Display());
+            string input = "0 + 1 = 3 - 1 = 1 * 3 = 40 / 10 =";
+            string[] output = App.Calculate(App.Parse(input));
+            for (int i = 0; i < output.Length; i++)
+            {
+                Console.WriteLine(output[i]);
+            }
             Console.ReadLine();
         }
     }

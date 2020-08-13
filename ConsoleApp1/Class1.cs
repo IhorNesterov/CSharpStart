@@ -4,18 +4,18 @@ using System.Text;
 
 namespace ConsoleApp1
 {
+
     public class Human
     {
         private int age;
         private int weight;
         private string name;
         public static int count;
-        public int unique_id;
-
+        public string unique_id; 
         public int Age
         {
             get
-            {
+            { 
                 return this.age;
             }
 
@@ -27,7 +27,6 @@ namespace ConsoleApp1
                 }
             }
         }
-
         public int Weight
         {
             get
@@ -43,7 +42,6 @@ namespace ConsoleApp1
             }
 
         }
-
         public string Name
         {
             get 
@@ -58,25 +56,17 @@ namespace ConsoleApp1
                 }
             }
         }
-
         public Human()
         {
-            unique_id = count;
-            Age = 20;
-            Weight = 70;
-            Name = "Dodik";
+            unique_id = "Human" + count;
             count++;
         }
-
-        public Human(int age, int weight, string name)
+        public Human(int age, int weight, string name) : this()
         {
-            unique_id = count;
             Age = age;
             Weight = weight;
             Name = name;
-            count++;
         }
-
         public virtual string Display()
         {
             string output = "";
@@ -85,27 +75,21 @@ namespace ConsoleApp1
             output += "\nWeight: " + this.Weight;
             return output;
         }
-
         public virtual void Write()
         {
             Console.WriteLine("Hello,write name)");
-            string input = Console.ReadLine();
-            Name = input;
+            Name = Console.ReadLine();
             Console.WriteLine("Write weight");
-            input = Console.ReadLine();
-            Weight = Int32.Parse(input);
+            Weight = Int32.Parse(Console.ReadLine());
             Console.WriteLine("Write age");
-            input = Console.ReadLine();
-            Age = Int32.Parse(input);
+            Age = Int32.Parse(Console.ReadLine());
         }
     };
-
     class Student : Human
     {
         private int[] marks;
         private string[] subjects;
         private string university_name;
-
         public Student() : base()
         {
             int[] marks = { 3 };
@@ -114,18 +98,15 @@ namespace ConsoleApp1
             Subjects = subjects;
             University_Name = "Default university name";
         }
-
         public Student(int age, int weight, string name, string univer_name) : base(age, weight, name)
         {
             University_Name = univer_name;
         }
-
         public Student(int age, int weight, string name, string univer_name,string[] subjects,int[] marks) : this(age,weight,name,univer_name)
         {
             Subjects = subjects;
             Marks = marks;
         }
-
         public string University_Name
         {
             get
@@ -140,7 +121,6 @@ namespace ConsoleApp1
                 }
             }
         }
-
         public string[] Subjects
         {
             get
@@ -155,7 +135,6 @@ namespace ConsoleApp1
                 }
             }
         }
-
         public int[] Marks
         {
             get
@@ -170,7 +149,6 @@ namespace ConsoleApp1
                 }
             }
         }
-
         public override string Display()
         {
             string output = base.Display();
@@ -182,7 +160,6 @@ namespace ConsoleApp1
             }
             return output;
         }
-
         public override void Write()
         {
             base.Write();
@@ -190,6 +167,12 @@ namespace ConsoleApp1
             this.University_Name = Console.ReadLine();
         }
 
+    }
+
+    class Employee : Human
+    {
+        private string jobname;
+        private int salary;
     }
 
 }
