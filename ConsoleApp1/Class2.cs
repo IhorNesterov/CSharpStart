@@ -6,7 +6,8 @@ namespace ConsoleApp1
 {
     class App
     {
-        public static string[] Parse(string input)
+        //Method for create string array from string,where every array element is a simple word from input string,used for parsing incoming information
+        public static string[] Parse(string input) 
         {
             int wordscount = 0;
             for (int i = 0; i < input.Length; i++)
@@ -69,6 +70,7 @@ namespace ConsoleApp1
             return output;
         }
 
+        //Method for arifmetical actions on the string array
         public static string[] Calculate(string[] input)
         {
             int outputvaluescount = 0;
